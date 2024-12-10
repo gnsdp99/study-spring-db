@@ -1,6 +1,6 @@
 package com.gnsdp99.itemservicedb;
 
-import com.gnsdp99.itemservicedb.config.JdbcTemplateV1Config;
+import com.gnsdp99.itemservicedb.config.JdbcTemplateV2Config;
 import com.gnsdp99.itemservicedb.repository.ItemRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Profile;
 
-@Import(JdbcTemplateV1Config.class)
+@Import(JdbcTemplateV2Config.class)
 @SpringBootApplication(
         scanBasePackages = "com.gnsdp99.itemservicedb.web"
 )
