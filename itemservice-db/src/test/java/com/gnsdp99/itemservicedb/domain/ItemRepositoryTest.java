@@ -3,30 +3,22 @@ package com.gnsdp99.itemservicedb.domain;
 import com.gnsdp99.itemservicedb.repository.ItemRepository;
 import com.gnsdp99.itemservicedb.repository.ItemSearchCondDto;
 import com.gnsdp99.itemservicedb.repository.ItemUpdateDto;
-import com.gnsdp99.itemservicedb.repository.memory.MemoryItemRepository;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Transactional
 @SpringBootTest
 class ItemRepositoryTest {
 
     @Autowired
     ItemRepository itemRepository;
-
-    @AfterEach
-    void afterEach() {
-        //MemoryItemRepository 의 경우 제한적으로 사용
-        if (itemRepository instanceof MemoryItemRepository) {
-            ((MemoryItemRepository) itemRepository).clearStore();
-        }
-    }
 
     @Test
     void save() {
