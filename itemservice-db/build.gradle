@@ -35,11 +35,13 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
 
-    // JdbcTemaplte
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-
     // H2 Database
     runtimeOnly 'com.h2database:h2'
+    // JdbcTemaplte
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    // MyBatis
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
+    testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.4'
 }
 
 tasks.named('test') {
