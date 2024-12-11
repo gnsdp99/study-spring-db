@@ -1,19 +1,19 @@
 package com.gnsdp99.itemservicedb.config;
 
 import com.gnsdp99.itemservicedb.repository.ItemRepository;
-import com.gnsdp99.itemservicedb.repository.jpa.JpaItemRepositoryV1;
+import com.gnsdp99.itemservicedb.repository.jpa.JpaItemRepositoryV2;
+import com.gnsdp99.itemservicedb.repository.jpa.SpringDataJpaItemRepository;
 import com.gnsdp99.itemservicedb.service.ItemService;
 import com.gnsdp99.itemservicedb.service.ItemServiceV1;
-import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @RequiredArgsConstructor
-public class JpaConfig {
+public class SpringDataJpaConfig {
 
-    private final EntityManager entityManager;
+    private final SpringDataJpaItemRepository springDataJpaItemRepository;
 
     @Bean
     public ItemService itemService() {
@@ -22,6 +22,6 @@ public class JpaConfig {
 
     @Bean
     public ItemRepository itemRepository() {
-        return new JpaItemRepositoryV1(entityManager);
+        return new JpaItemRepositoryV2(springDataJpaItemRepository);
     }
 }
