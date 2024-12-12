@@ -1,3 +1,4 @@
 rootProject.name = 'study-spring-db'
 include 'jdbc'
 include 'itemservice-db'
+include 'spring-transaction'
